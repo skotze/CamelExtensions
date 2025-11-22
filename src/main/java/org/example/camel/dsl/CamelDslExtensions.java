@@ -1,12 +1,7 @@
 package org.example.camel.dsl;
 
-import lombok.experimental.UtilityClass;
-import org.apache.camel.Expression;
-import org.apache.camel.LoggingLevel;
-import org.apache.camel.model.ProcessorDefinition;
 import org.apache.commons.lang3.function.TriFunction;
 import org.example.camel.dsl.exchangedata.ExchangeDataDefinition;
-import org.example.camel.dsl.exchangedata.VariableDefinition;
 import org.example.camel.dsl.functions.ExchangeBiFunction;
 import org.example.camel.dsl.functions.ExchangeTriFunction;
 
@@ -14,7 +9,7 @@ import java.util.function.BiFunction;
 
 public class CamelDslExtensions {
 
-    public static <TV1, TV2> ExchangeBiFunction<TV1, TV2> inline(
+    public static <TV1, TV2> ExchangeBiFunction<TV1, TV2> function(
             BiFunction<TV1, TV2, Object> biFunction,
             ExchangeDataDefinition<TV1> accessor1,
             ExchangeDataDefinition<TV2> accessor2
@@ -22,7 +17,7 @@ public class CamelDslExtensions {
         return new ExchangeBiFunction<>(biFunction, accessor1, accessor2);
     }
 
-    public static <TV1, TV2, TV3> ExchangeTriFunction<TV1, TV2, TV3> inline(
+    public static <TV1, TV2, TV3> ExchangeTriFunction<TV1, TV2, TV3> function(
             TriFunction<TV1, TV2, TV3, Object> triFunction,
             ExchangeDataDefinition<TV1> accessor1,
             ExchangeDataDefinition<TV2> accessor2,

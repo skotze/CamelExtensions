@@ -1,17 +1,14 @@
 package org.example;
 
 import lombok.experimental.ExtensionMethod;
-import lombok.experimental.UtilityClass;
-import org.apache.camel.LoggingLevel;
 import org.apache.camel.builder.endpoint.EndpointRouteBuilder;
-import org.apache.camel.model.ProcessorDefinition;
 import org.example.camel.dsl.CamelDslExtensions;
 import org.example.camel.dsl.RouteBuilderExtensions;
 import org.example.camel.dsl.exchangedata.BodyDefinition;
 import org.example.camel.dsl.exchangedata.VariableDefinition;
 import org.springframework.stereotype.Component;
 
-import static org.example.camel.dsl.CamelDslExtensions.inline;
+import static org.example.camel.dsl.CamelDslExtensions.function;
 import static org.example.camel.dsl.exchangedata.ExchangeDataDefinition.bodyDefinition;
 import static org.example.camel.dsl.exchangedata.ExchangeDataDefinition.variableDefinition;
 
@@ -29,7 +26,7 @@ public class RouteBuilder extends EndpointRouteBuilder {
                 .setBody().body(String.class, String::toString)
                 .setVariable(VAR_1, constant(""))
                 .setBody(VAR_1::getFromExchange)
-                .setBody(inline(this::testMethod, BODY_AS_STRING, VAR_1))
+                .setBody(function(this::testMethod, BODY_AS_STRING, VAR_1))
                 .setHeader(file().fileName(), constant("foo.txt"));
     }
 
