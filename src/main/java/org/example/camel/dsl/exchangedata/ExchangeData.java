@@ -13,7 +13,7 @@ public abstract class ExchangeData<V> {
     public abstract V getFromExchange(Exchange exchange);
 
 
-    public static <V> ExchangeData<V> body(Class<V> type) {
+    public static <V> Body<V> body(Class<V> type) {
         return new Body<>(type);
     }
 
