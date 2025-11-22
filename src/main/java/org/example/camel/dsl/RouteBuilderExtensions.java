@@ -38,7 +38,7 @@ public class RouteBuilderExtensions {
     public static EnrichDefinition enrichSendExpression(ProcessorDefinition<?> route,
                                                         String destination,
                                                         Expression expression) {
-        String enrichVariableName = "ENRICH:" + UUID.randomUUID();
+        String enrichVariableName = "ENRICH:'destination':" + UUID.randomUUID();
         route.setVariable(enrichVariableName, expression);
         return route.enrich().constant(destination).variableSend(enrichVariableName);
     }
