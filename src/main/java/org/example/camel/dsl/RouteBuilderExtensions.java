@@ -3,8 +3,6 @@ package org.example.camel.dsl;
 import lombok.experimental.UtilityClass;
 import org.apache.camel.Expression;
 import org.apache.camel.builder.EndpointConsumerBuilder;
-import org.apache.camel.builder.ExpressionClause;
-import org.apache.camel.builder.endpoint.dsl.DirectEndpointBuilderFactory;
 import org.apache.camel.model.EnrichDefinition;
 import org.apache.camel.model.ProcessorDefinition;
 import org.example.camel.dsl.exchangedata.ExchangePropertyDefinition;
@@ -37,7 +35,7 @@ public class RouteBuilderExtensions {
     }
 
 
-    public static EnrichDefinition enrichWithExpression(ProcessorDefinition<?> route,
+    public static EnrichDefinition enrichSendExpression(ProcessorDefinition<?> route,
                                                         String destination,
                                                         Expression expression) {
         String enrichVariableName = "ENRICH:" + UUID.randomUUID();
@@ -46,27 +44,27 @@ public class RouteBuilderExtensions {
     }
 
 
-    public static EnrichDefinition enrichWithExpression(ProcessorDefinition<?> route,
+    public static EnrichDefinition enrichSendExpression(ProcessorDefinition<?> route,
                                                         EndpointConsumerBuilder endpointConsumerBuilder,
                                                         Expression expression,
                                                         VariableDefinition<?> variableReceive) {
-        return enrichWithExpression(route, endpointConsumerBuilder.getRawUri(), expression, variableReceive);
+        return enrichSendExpression(route, endpointConsumerBuilder.getRawUri(), expression, variableReceive);
     }
 
-    public static EnrichDefinition enrichWithExpression(ProcessorDefinition<?> route,
+    public static EnrichDefinition enrichSendExpression(ProcessorDefinition<?> route,
                                                         EndpointConsumerBuilder endpointConsumerBuilder,
                                                         Expression expression) {
-        return enrichWithExpression(route, endpointConsumerBuilder.getRawUri(), expression);
+        return enrichSendExpression(route, endpointConsumerBuilder.getRawUri(), expression);
     }
 
 
-    public static EnrichDefinition enrichWithExpression(ProcessorDefinition<?> route,
+    public static EnrichDefinition enrichSendExpression(ProcessorDefinition<?> route,
                                                         String destination,
                                                         Expression expression,
                                                         VariableDefinition<?> variableReceive
     ) {
         return variableReceive(
-                enrichWithExpression(route, destination, expression),
+                enrichSendExpression(route, destination, expression),
                 variableReceive);
     }
 
