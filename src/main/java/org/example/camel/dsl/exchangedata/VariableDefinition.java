@@ -9,7 +9,7 @@ public class VariableDefinition<V> extends KeyValueExchangeDataDefinition<V> {
     }
 
     @Override
-    public V getValueFromExchange(Exchange exchange) {
+    public V getFromExchange(Exchange exchange) {
         return exchange.getVariable(name(), this.type);
     }
 }

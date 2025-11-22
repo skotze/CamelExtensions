@@ -10,7 +10,7 @@ public abstract class ExchangeDataDefinition<V> {
         this.type = type;
     }
 
-    public abstract V getValueFromExchange(Exchange exchange);
+    public abstract V getFromExchange(Exchange exchange);
 
     public static <V> BodyDefinition<V> bodyDefinition(Class<V> type) {
         return new BodyDefinition<>(type);

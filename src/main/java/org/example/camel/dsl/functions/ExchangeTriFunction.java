@@ -27,9 +27,9 @@ public class ExchangeTriFunction<TV1, TV2, TV3> implements Function<Exchange, Ob
     @Override
     public Object apply(Exchange exchange) {
         return this.triFunction.apply(
-                this.exchangeData1.getValueFromExchange(exchange),
-                this.exchangeData2.getValueFromExchange(exchange),
-                this.exchangeData3.getValueFromExchange(exchange)
+                this.exchangeData1.getFromExchange(exchange),
+                this.exchangeData2.getFromExchange(exchange),
+                this.exchangeData3.getFromExchange(exchange)
         );
     }
 }

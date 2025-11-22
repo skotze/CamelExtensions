@@ -9,7 +9,7 @@ public class HeaderDefinition<V> extends KeyValueExchangeDataDefinition<V> {
     }
 
     @Override
-    public V getValueFromExchange(Exchange exchange) {
+    public V getFromExchange(Exchange exchange) {
         return exchange.getMessage().getHeader(name(), this.type);
     }
 }

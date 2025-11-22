@@ -9,7 +9,7 @@ public class BodyDefinition<V> extends ExchangeDataDefinition<V> {
     }
 
     @Override
-    public V getValueFromExchange(Exchange exchange) {
+    public V getFromExchange(Exchange exchange) {
         return exchange.getMessage().getBody(type);
     }
 }

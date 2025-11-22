@@ -1,7 +1,12 @@
 package org.example.camel.dsl;
 
+import lombok.experimental.UtilityClass;
+import org.apache.camel.Expression;
+import org.apache.camel.LoggingLevel;
+import org.apache.camel.model.ProcessorDefinition;
 import org.apache.commons.lang3.function.TriFunction;
 import org.example.camel.dsl.exchangedata.ExchangeDataDefinition;
+import org.example.camel.dsl.exchangedata.VariableDefinition;
 import org.example.camel.dsl.functions.ExchangeBiFunction;
 import org.example.camel.dsl.functions.ExchangeTriFunction;
 
@@ -26,5 +31,7 @@ public class CamelDslExtensions {
     ) {
         return new ExchangeTriFunction<>(triFunction, accessor1, accessor2, accessor3);
     }
+
+
 
 }

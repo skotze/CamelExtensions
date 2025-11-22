@@ -9,7 +9,7 @@ public class ExchangePropertyDefinition<V> extends KeyValueExchangeDataDefinitio
     }
 
     @Override
-    public V getValueFromExchange(Exchange exchange) {
+    public V getFromExchange(Exchange exchange) {
         return exchange.getProperty(name(), this.type);
     }
 }

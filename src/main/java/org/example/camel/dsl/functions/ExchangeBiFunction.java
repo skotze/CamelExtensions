@@ -24,8 +24,8 @@ public class ExchangeBiFunction<TV1, TV2> implements Function<Exchange, Object> 
     @Override
     public Object apply(Exchange exchange) {
         return this.biFunction.apply(
-                this.exchangeData1.getValueFromExchange(exchange),
-                this.exchangeData2.getValueFromExchange(exchange)
+                this.exchangeData1.getFromExchange(exchange),
+                this.exchangeData2.getFromExchange(exchange)
         );
     }
 }
