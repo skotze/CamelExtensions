@@ -1,8 +1,7 @@
 package org.example.camel.dsl.functions;
 
 import org.apache.camel.Exchange;
-import org.example.RouteBuilder;
-import org.example.camel.dsl.ExchangeData;
+import org.example.camel.dsl.exchangedata.ExchangeData;
 
 import java.util.function.BiFunction;
 import java.util.function.Function;

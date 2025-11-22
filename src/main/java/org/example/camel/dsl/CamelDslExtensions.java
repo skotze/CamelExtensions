@@ -1,6 +1,7 @@
 package org.example.camel.dsl;
 
 import org.apache.commons.lang3.function.TriFunction;
+import org.example.camel.dsl.exchangedata.ExchangeData;
 import org.example.camel.dsl.functions.ExchangeBiFunction;
 import org.example.camel.dsl.functions.ExchangeTriFunction;
 
