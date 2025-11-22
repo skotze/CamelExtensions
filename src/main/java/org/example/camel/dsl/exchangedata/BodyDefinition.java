@@ -2,14 +2,14 @@ package org.example.camel.dsl.exchangedata;
 
 import org.apache.camel.Exchange;
 
-public class Body<V> extends ExchangeData<V> {
+public class BodyDefinition<V> extends ExchangeDataDefinition<V> {
 
-    public Body(Class<V> type) {
+    public BodyDefinition(Class<V> type) {
         super(type);
     }
 
     @Override
-    public V getFromExchange(Exchange exchange) {
+    public V getValueFromExchange(Exchange exchange) {
         return exchange.getMessage().getBody(type);
     }
 }
